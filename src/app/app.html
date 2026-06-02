@@ -1,0 +1,142 @@
+<main class="site-shell">
+  <nav class="topbar" aria-label="Primary navigation">
+    <a class="brand-mark" href="#top" aria-label="Maureen Oguche home">MO</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="top" class="hero-section">
+    <div class="hero-visual" aria-hidden="true">
+      <div class="signal-grid"></div>
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="system-map">
+        <span>API Gateway</span>
+        <span>Payments</span>
+        <span>AI Workflows</span>
+        <span>Data Pipelines</span>
+      </div>
+    </div>
+
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Senior fullstack developer based in Nigeria</p>
+      <h1>Maureen Oguche builds the systems behind serious digital products.</h1>
+      <p class="hero-summary">
+        Backend-led fullstack engineer and CTO working across payments, fintech infrastructure,
+        AI automation, conversational commerce, and cloud-native service design.
+      </p>
+      <div class="hero-actions">
+        <a class="primary-action" href="mailto:career.oguchemaureen@outlook.com">Request availability</a>
+        <a class="secondary-action" href="#work">See selected work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="metric-band" aria-label="Career highlights">
+    @for (metric of metrics; track metric.label) {
+      <div class="metric">
+        <strong>{{ metric.value }}</strong>
+        <span>{{ metric.label }}</span>
+      </div>
+    }
+  </section>
+
+  <section class="section intro-section">
+    <div>
+      <p class="eyebrow">Engineering profile</p>
+      <h2>Clean architecture, fast systems, and teams that ship with less drag.</h2>
+    </div>
+    <p>
+      I work where correctness, latency, reliability, and product clarity meet: payment systems,
+      banking integrations, automation workflows, reporting platforms, and AI-assisted products.
+      My bias is toward simple service boundaries, observable APIs, and pragmatic delivery.
+    </p>
+  </section>
+
+  <section id="work" class="section work-section">
+    <div class="section-heading">
+      <p class="eyebrow">Selected work</p>
+      <h2>Products with infrastructure underneath.</h2>
+    </div>
+
+    <div class="project-list">
+      @for (project of projects; track project.name; let i = $index) {
+        <article class="project-row reveal">
+          <div class="project-index">0{{ i + 1 }}</div>
+          <div class="project-main">
+            <p class="eyebrow">{{ project.eyebrow }}</p>
+            <h3>
+              @if (project.url) {
+                <a [href]="project.url" target="_blank" rel="noreferrer">
+                  {{ project.name }}
+                </a>
+              } @else {
+                {{ project.name }}
+              }
+            </h3>
+            <p>{{ project.summary }}</p>
+          </div>
+          <div class="project-proof">
+            <strong>{{ project.impact }}</strong>
+            <div class="stack-line">
+              @for (item of project.stack; track item) {
+                <span>{{ item }}</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section id="experience" class="section experience-section">
+    <div class="section-heading sticky-heading">
+      <p class="eyebrow">Experience</p>
+      <h2>From implementation to technical ownership.</h2>
+      <p>
+        Recent roles cover CTO-level payments ownership, senior consulting delivery, enterprise
+        bot platforms, and high-impact bank refactoring work.
+      </p>
+    </div>
+
+    <div class="timeline">
+      @for (role of roles; track role.company) {
+        <article class="timeline-item reveal">
+          <p>{{ role.period }}</p>
+          <h3>{{ role.title }}</h3>
+          <strong>{{ role.company }}</strong>
+          <span>{{ role.focus }}</span>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section stack-section">
+    <div>
+      <p class="eyebrow">Working stack</p>
+      <h2>Backend depth with enough frontend range to own the product surface.</h2>
+    </div>
+    <div class="stack-cloud" aria-label="Technologies">
+      @for (item of stack; track item) {
+        <span>{{ item }}</span>
+      }
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <p class="eyebrow">Available for senior engineering conversations</p>
+    <h2>Need someone who can own APIs, payments, cloud workflows, and the product edge?</h2>
+    <div class="contact-actions">
+      <a class="primary-action" href="mailto:career.oguchemaureen@outlook.com">career.oguchemaureen@outlook.com</a>
+      <a class="secondary-action" href="tel:+2348030411314">+234 80 304 11314</a>
+    </div>
+    <div class="social-links">
+      @for (link of links; track link.label) {
+        <a [href]="link.href" target="_blank" rel="noreferrer">{{ link.label }}</a>
+      }
+    </div>
+  </section>
+</main>
